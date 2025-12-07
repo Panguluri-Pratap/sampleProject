@@ -1,1 +1,1 @@
-<h2>Drag the blue box to right</h2>
+<h2>Hello World</h2>
