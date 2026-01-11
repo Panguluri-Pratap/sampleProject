@@ -88,6 +88,7 @@ public class AlertsFramesWindowsSteps {
     @Then("i click on selenium tutorial link iframe2 and close the selenium page2")
     public void i_click_on_selenium_tutorial_link_iframe2_and_close_the_selenium_page2() {
          afw.clickOnIframe2();
+         afw.closeBrowser();
     }
 
 }

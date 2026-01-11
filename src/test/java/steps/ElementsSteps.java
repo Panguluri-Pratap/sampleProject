@@ -126,8 +126,10 @@ public class ElementsSteps {
     @Then("Validated No radio button is disabled")
     public void validate_no_radio_button_is_disabled() {
         elements.NoRadiobtndisabled();
-
+        elements.closeBrowser();
     }
+
+
 
 
 

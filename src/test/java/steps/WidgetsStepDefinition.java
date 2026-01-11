@@ -25,6 +25,8 @@ public class WidgetsStepDefinition {
     @Then("I select the title option in the dropdown")
     public void i_select_the_title_option_in_the_dropdown() {
         wds.pickTitleOption();
+        wds.closeBrowser();
     }
+
 
 }

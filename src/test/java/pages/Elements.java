@@ -132,5 +132,9 @@ public class Elements {
         }
     }
 
+    public void closeBrowser(){
+        driver.quit();
+    }
+
 
 }

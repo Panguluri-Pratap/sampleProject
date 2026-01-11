@@ -205,4 +205,8 @@ public class AlertsFramesAndWindows {
 
     }
 
+    public void closeBrowser(){
+        driver.quit();
+    }
+
 }

@@ -130,4 +130,8 @@ public class Forms {
         driver.findElement(submit).click();
     }
 
+    public void closeBrowser(){
+        driver.quit();
+    }
+
 }

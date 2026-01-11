@@ -76,6 +76,10 @@ public class Interaction {
         action.dragAndDropBy(driver.findElement(limitElement),371,71).perform();
     }
 
+    public void closeBrowser(){
+        driver.quit();
+    }
+
 
 
 }

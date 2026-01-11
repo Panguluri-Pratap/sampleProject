@@ -151,6 +151,7 @@ public class FormsSteps {
     @Then("click on new user button")
     public void click_on_new_user_button() {
       forms.clickNewUser();
+      forms.closeBrowser();
     }
 
 }

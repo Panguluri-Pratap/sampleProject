@@ -34,6 +34,10 @@ public class Widgets {
 
    }
 
+    public void closeBrowser(){
+        driver.quit();
+    }
+
 
 
 

@@ -71,6 +71,7 @@ public class InteractionStepDefinitions {
     @Then("i dragged element within the limit")
     public void i_dragged_element_within_the_limit() {
         itc.containerRestrictedSection();
+        itc.closeBrowser();
     }
 
 
