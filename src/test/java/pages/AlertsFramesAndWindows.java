@@ -1,16 +1,24 @@
 package pages;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.DriverFactory;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Set;
 
 public class AlertsFramesAndWindows {
-    WebDriver driver;
 
+
+        WebDriver driver;
+
+        @Before
+        public void setup() {
+            driver = DriverFactory.getDriver();
+        }
 
     public AlertsFramesAndWindows(WebDriver driver){
         this.driver=driver;
@@ -101,6 +109,7 @@ public class AlertsFramesAndWindows {
 
             // Switch back to main window
             driver.switchTo().window(mainWindow);
+
         }
 
 
@@ -142,6 +151,7 @@ public class AlertsFramesAndWindows {
         Alert alert = driver.switchTo().alert();
         alert.sendKeys("Pratap");
         alert.accept();
+
      }
 
      // Actions for Iframes
@@ -202,11 +212,7 @@ public class AlertsFramesAndWindows {
 
            driver.switchTo().defaultContent();
 
-
     }
 
-    public void closeBrowser(){
-        driver.quit();
-    }
 
 }

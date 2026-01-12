@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utils.DriverFactory;
 
 public class HomeStepDefinition {
 
@@ -18,7 +19,7 @@ public class HomeStepDefinition {
         public void i_navigate_to_the_home_page () {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
-            driver = new ChromeDriver(options);
+            driver = DriverFactory.getDriver(options);
 
         }
 
@@ -30,7 +31,6 @@ public class HomeStepDefinition {
 
         @Then("I should see forgot password page")
         public void i_should_see_forgot_password_page () {
-            driver.quit();
             System.out.println("Run was successfully completed");
         }
     }

@@ -1,19 +1,23 @@
 package pages;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.DriverFactory;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.List;
 
 public class Widgets {
 
     WebDriver driver;
+
+
+
+    @Before
+    public void setup() {
+        driver = DriverFactory.getDriver();
+    }
 
    public Widgets(WebDriver driver){
        this.driver=driver;
@@ -33,12 +37,4 @@ public class Widgets {
        select.selectByIndex(1);
 
    }
-
-    public void closeBrowser(){
-        driver.quit();
-    }
-
-
-
-
 }

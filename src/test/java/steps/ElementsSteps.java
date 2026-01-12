@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.Elements;
-import pages.Forms;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
@@ -21,7 +21,7 @@ public class ElementsSteps {
     //TextBox
     @Given("I launch the Text Box application")
     public void launchApplication() {
-        driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/text-box.php");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -56,7 +56,7 @@ public class ElementsSteps {
 
     @Then("I should see the submitted details displayed correctly")
     public void verifyDetails() {
-        driver.quit();
+        elements.verifyDetails();
     }
 
 
@@ -126,7 +126,6 @@ public class ElementsSteps {
     @Then("Validated No radio button is disabled")
     public void validate_no_radio_button_is_disabled() {
         elements.NoRadiobtndisabled();
-        elements.closeBrowser();
     }
 
 

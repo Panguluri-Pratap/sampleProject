@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.Interaction;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
@@ -16,7 +17,7 @@ public class InteractionStepDefinitions {
       // Selectable Page
     @Given("I launch selectable items page")
     public void i_launch_selectable_items_page() {
-         driver=new ChromeDriver();
+        driver = DriverFactory.getDriver();
          driver.manage().window().maximize();
          driver.get("https://www.tutorialspoint.com/selenium/practice/selectable.php");
          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -33,7 +34,7 @@ public class InteractionStepDefinitions {
 
     @Given("I launch draggable items page")
     public void i_launch_draggable_items_page() {
-        driver=new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/droppable.php");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -50,7 +51,7 @@ public class InteractionStepDefinitions {
 
     @Given("I launch the application")
     public void i_launch_the_application() {
-         driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
          driver.manage().window().maximize();
          driver.get("https://www.tutorialspoint.com/selenium/practice/dragabble.php");
          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -71,7 +72,7 @@ public class InteractionStepDefinitions {
     @Then("i dragged element within the limit")
     public void i_dragged_element_within_the_limit() {
         itc.containerRestrictedSection();
-        itc.closeBrowser();
+
     }
 
 
