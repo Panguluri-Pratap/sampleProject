@@ -1,16 +1,25 @@
 package pages;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import utils.DriverFactory;
 
 import java.util.List;
 
 public class Interaction {
 
     WebDriver driver;
+
+
+
+    @Before
+    public void setup() {
+        driver = DriverFactory.getDriver();
+    }
 
     public Interaction(WebDriver driver){
         this.driver=driver;
@@ -51,6 +60,7 @@ public class Interaction {
             // Verify the item is selected by checking selected CSS class
             boolean isSelected = item.getAttribute("class").contains("active");
             System.out.println(item.getText() + " -> Selected: " + isSelected);
+           // driver.close();
         }
 
     }
@@ -76,9 +86,7 @@ public class Interaction {
         action.dragAndDropBy(driver.findElement(limitElement),371,71).perform();
     }
 
-    public void closeBrowser(){
-        driver.quit();
-    }
+
 
 
 

@@ -4,20 +4,21 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.AlertsFramesAndWindows;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
 public class AlertsFramesWindowsSteps {
-    WebDriver driver;
+        WebDriver driver;
+
     AlertsFramesAndWindows afw;
 
     // browse window steps
 
     @Given("I launch the browser window application")
     public void i_launch_the_browser_window_application() {
-        driver=new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/browser-windows.php");
         afw=new AlertsFramesAndWindows(driver);
@@ -41,7 +42,7 @@ public class AlertsFramesWindowsSteps {
 
     @Given("I launch the alerts page")
     public void i_launch_the_alerts_page() {
-        driver=new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/alerts.php");
         afw=new AlertsFramesAndWindows(driver);
@@ -73,7 +74,7 @@ public class AlertsFramesWindowsSteps {
 
     @Given("I launch the frame page")
     public void i_launch_the_frame_page() {
-          driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
           driver.manage().window().maximize();
           driver.get("https://www.tutorialspoint.com/selenium/practice/frames.php");
           driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -88,7 +89,6 @@ public class AlertsFramesWindowsSteps {
     @Then("i click on selenium tutorial link iframe2 and close the selenium page2")
     public void i_click_on_selenium_tutorial_link_iframe2_and_close_the_selenium_page2() {
          afw.clickOnIframe2();
-         afw.closeBrowser();
     }
 
 }

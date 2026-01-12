@@ -18,6 +18,7 @@ Feature: Alerts Frames and Windows
       Examples:
         | name  |
         | hello |
+        | pratap |
 
       @frame
       Scenario: Frames

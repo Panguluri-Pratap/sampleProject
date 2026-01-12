@@ -4,9 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pages.Elements;
 import pages.Forms;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
@@ -21,7 +20,7 @@ public class FormsSteps {
 
     @Given("I launch the Student Registration Form Application")
     public void i_launch_the_student_registration_form_application() {
-        driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -84,7 +83,7 @@ public class FormsSteps {
 
     @Given("I launch the student register application")
     public void i_launch_the_student_register_application() {
-        driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         driver.get("https://www.tutorialspoint.com/selenium/practice/register.php");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -126,7 +125,7 @@ public class FormsSteps {
 
     @Given("I launch the student login page")
     public void i_launch_the_student_login_page() {
-         driver=new ChromeDriver();
+        driver = DriverFactory.getDriver();
          driver.manage().window().maximize();
          driver.get("https://www.tutorialspoint.com/selenium/practice/login.php");
          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -151,7 +150,7 @@ public class FormsSteps {
     @Then("click on new user button")
     public void click_on_new_user_button() {
       forms.clickNewUser();
-      forms.closeBrowser();
+
     }
 
 }

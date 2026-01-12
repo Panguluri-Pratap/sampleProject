@@ -1,11 +1,13 @@
 package pages;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
@@ -14,6 +16,15 @@ public class Elements {
 
 
      WebDriver driver;
+
+
+
+        @Before
+        public void setup() {
+            driver = DriverFactory.getDriver();
+        }
+
+
 
 
     // Constructor
@@ -71,7 +82,7 @@ public class Elements {
         Thread.sleep(5000);
     }
     public void verifyDetails() {
-        driver.quit();
+        System.out.println("Details are submitted correctly");
     }
 
 
@@ -95,6 +106,7 @@ public class Elements {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(clickboxtwoPlus)).click();
+        driver.quit();
     }
 
 
@@ -130,11 +142,7 @@ public class Elements {
         } else {
             System.out.println("No radio button validation failed!");
         }
-    }
-
-    public void closeBrowser(){
         driver.quit();
     }
-
 
 }

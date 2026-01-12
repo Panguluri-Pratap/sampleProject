@@ -1,16 +1,25 @@
 package pages;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
 public class Forms {
     WebDriver driver;
+
+
+
+    @Before
+    public void setup() {
+        driver = DriverFactory.getDriver();
+    }
 
 
     public Forms(WebDriver driver) {
@@ -89,14 +98,18 @@ public class Forms {
         cityOption.click();
     }
     public void clickLoginbtn(){
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(studentLogin))).click();
+        WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebElement submit=    wait.until(ExpectedConditions.visibilityOfElementLocated(studentLogin));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", submit);
     }
 
 
     // Actions for Student Register
 
     public void enterFirstName(String FName){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(firstName));
         driver.findElement(firstName).sendKeys(FName);
     }
     public void enterLastName(String LName){
@@ -112,7 +125,9 @@ public class Forms {
         driver.findElement(register).click();
     }
     public void clickBackToLoginButton(){
-        driver.findElement(backToLogin).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(backToLogin));
+        button.click();
     }
 
     // Actions for Student Login
@@ -128,10 +143,6 @@ public class Forms {
     }
     public void clickNewUser(){
         driver.findElement(submit).click();
-    }
-
-    public void closeBrowser(){
-        driver.quit();
     }
 
 }
