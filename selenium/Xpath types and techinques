@@ -1,0 +1,25 @@
+1. We can use 'and' operator also like below
+//input[@class='login_input' and @type='password']
+
+2.//tagname[contains(@attribute, 'sub-set of value of attribute')]
+or
+//tagname[contains(text(), 'sub-set of value of attribute')]
+
+//img[contains(@class, 'google-play')]
+or
+//img[contains(text(), 'google-play')]
+
+3.//tagname[starts-with(@attribute, 'starting or prefix of the attribute')]
+//a[starts-with(@id, 'u_p_k')]
+
+alerts: accept, dismiss, getText, SendKeys
+
+ FluentWait<WebDriver> wait=
+                new FluentWait<WebDriver>(driver)
+                        .withTimeout(Duration.ofSeconds(20))
+                        .pollingEvery(Duration.ofMillis(200))
+                        .ignoring(NoSuchElementException.class);
+
+Explicit Wait:
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("myElement")));
