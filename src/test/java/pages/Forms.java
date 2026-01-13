@@ -145,6 +145,7 @@ public class Forms {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         wait.until((ExpectedConditions.visibilityOfElementLocated(submit)));
         driver.findElement(submit).click();
+        System.out.println("Flow ran Successfully");
     }
 
 }
