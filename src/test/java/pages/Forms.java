@@ -142,6 +142,8 @@ public class Forms {
         driver.findElement(login).click();
     }
     public void clickNewUser(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until((ExpectedConditions.visibilityOfElementLocated(submit)));
         driver.findElement(submit).click();
     }
 
